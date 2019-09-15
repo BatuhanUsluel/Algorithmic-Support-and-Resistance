@@ -12,6 +12,7 @@ import time
 
 import yfinance as yahoo_finance
 yahoo_finance.pdr_override()
+from mpl_finance import candlestick2_ohlc
 
 
 def createZigZagPoints(dfSeries, minSegSize=0.1, sizeInDevs=0.5):
@@ -58,15 +59,16 @@ for ticker in tickers:
 			pass   
 
 	ticker_df = ticker_df.reset_index()
-	# print(ticker_df.head(5))
+	print(ticker_df.head(5))
 	# print(len(ticker_df))
 
 	x_max = 0
 	dfRes = createZigZagPoints(ticker_df.High).dropna()
-	plt.clf()
-	plt.plot(ticker_df['High'])
+
+	fig, ax = plt.subplots()
+	candlestick2_ohlc(ax,ticker_df['Open'],ticker_df['High'],ticker_df['Low'],ticker_df['Close'],width=0.6, colorup='g', colordown='r')
 	plt.plot(dfRes['Value'])
-	start_time = time.time()
+	
 	removed_indexes = []
 	for index, row in dfRes.iterrows():
 		if (not(index in removed_indexes)):
@@ -117,8 +119,6 @@ for ticker in tickers:
 				if (endx>x_max):
 					x_max=endx
 				plt.hlines(y=sum/len(values), xmin=startx, xmax=endx, linewidth=1, color='r')
-	# print("--- %s seconds ---" % (time.time() - start_time))
 	# if (x_max>300):
-	plt.plot()
 	plt.title(ticker)
 	plt.show()
