@@ -41,6 +41,7 @@ parser.add_argument('-i', '--interval', default='1m', type=str, required=False, 
 parser.add_argument('-d', '--dif', default='0.05', type=float, required=False, help='Max %% difference between two points to group them together. Default: 0.05')
 parser.add_argument('-t', '--time', default='150', type=int, required=False, help='Max time measured in number of bars between two points to be grouped together. Default: 150')
 parser.add_argument('-n', '--number', default='3', type=int, required=False, help='Min number of points in price range to draw a support/resistance line. Default: 3')
+parser.add_argument('-m', '--min', default='150', type=int, required=False, help='Min number of bars from the start the support/resistance line has to be at to display chart')
 args = parser.parse_args()
 
 #S&P 500 Tickers
@@ -106,7 +107,7 @@ for ticker in tickers:
 					if (endx>x_max):
 						x_max=endx
 					plt.hlines(y=sum/len(values), xmin=startx, xmax=endx, linewidth=1, color='r')
-		if (x_max>250):
+		if (x_max>args.min):
 			plt.title(ticker)
 			plt.show()
 		plt.clf()
