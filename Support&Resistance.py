@@ -63,7 +63,7 @@ while not connected:
 		pass
 
 for ticker in tickers:
-	print (ticker)
+	print ("\n\n" + ticker)
 	try:
 		x_max = 0
 		dfRes = createZigZagPoints(ticker_df.Close[ticker]).dropna()
@@ -95,12 +95,10 @@ for ticker in tickers:
 									counter=counter+1
 				if (counter>args.number):
 					sum = 0
-					print ("Support at ")
-					for v in values:
-						print (str(v) + " and", end='')
-					print(" with elements ", end='')
-					for d in dropindexes:
-						print (str(d) + " and ", end='')
+					print ("Support at ", end='')
+					for i in range(len(values)-1):
+						print("{:0.2f} and ".format(values[i]), end='')
+					print("{:0.2f} ".format(values[len(values)-1]), end='')
 					removed_indexes.extend(dropindexes)
 					for value in values:
 						sum = sum + value
