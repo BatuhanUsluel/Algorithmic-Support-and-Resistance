@@ -1,7 +1,7 @@
 # Algorithmic-Support-and-Resistance
 ![AMG Example](screenshots/AMG.png)
 
-Uses the [zig-zag](https://www.google.com "Investopedia Definition") technical indicator to mark reversal points. If there are multiple reversals at a close price range, it averages them out and draws a support/resistance line. Displays a candle-stick chart with the zig-zag indicator and the support/resistance lines marked. Currently loops through a list of s&p500 stocks, getting the data from yahoo finance.
+Uses the [zig-zag](https://www.investopedia.com/terms/z/zig_zag_indicator.asp "Investopedia Definition") technical indicator to mark reversal points. If there are multiple reversals at a close price range, it averages them out and draws a support/resistance line. Displays a candle-stick chart with the zig-zag indicator and the support/resistance lines marked. Currently loops through a list of s&p500 stocks, getting the data from yahoo finance.
 
 ```
 usage: Support&Resistance.py [-h] [-t TICKERS] [-p PERIOD] [-i INTERVAL]
