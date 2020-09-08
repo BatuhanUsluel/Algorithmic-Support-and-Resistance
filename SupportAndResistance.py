@@ -27,8 +27,8 @@ def createZigZagPoints(dfSeries, minSegSize=0.1, sizeInDevs=0.5):
 		else:	   
 			retracePrc = abs((dfSeries[ln]-curVal)/curVal*100)
 			if(retracePrc >= minRetrace):
-				dfRes.ix[curPos, 'Value'] = curVal
-				dfRes.ix[curPos, 'Dir'] = curDir
+				dfRes.loc[curPos, 'Value'] = curVal
+				dfRes.loc[curPos, 'Dir'] = curDir
 				curVal = dfSeries[ln]
 				curPos = ln
 				curDir = -1*curDir
