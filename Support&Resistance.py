@@ -102,7 +102,7 @@ for ticker in tickers:
 					print ("Support at ", end='')
 					for i in range(len(values)-1):
 						print("{:0.2f} and ".format(values[i]), end='')
-					print("{:0.2f} ".format(values[len(values)-1]), end='')
+					print("{:0.2f} \n".format(values[len(values)-1]), end='')
 					removed_indexes.extend(dropindexes)
 					for value in values:
 						sum = sum + value
