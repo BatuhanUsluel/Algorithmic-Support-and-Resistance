@@ -51,7 +51,7 @@ if (args.tickers=="SPY500"):
 else:
 	tickers = args.tickers.split(",")
 
-	connected = False
+connected = False
 while not connected:
 	try:
 		ticker_df = web.get_data_yahoo(tickers, period = args.period, interval = args.interval)
