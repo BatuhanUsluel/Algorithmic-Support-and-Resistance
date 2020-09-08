@@ -66,11 +66,15 @@ for ticker in tickers:
 	print ("\n\n" + ticker)
 	try:
 		x_max = 0
-		dfRes = createZigZagPoints(ticker_df.Close[ticker]).dropna()
 		fig, ax = plt.subplots()
-		candlestick2_ohlc(ax,ticker_df['Open'][ticker],ticker_df['High'][ticker],ticker_df['Low'][ticker],ticker_df['Close'][ticker],width=0.6, colorup='g', colordown='r')
-		plt.plot(dfRes['Value'])
+		if(len(tickers)!=1):
+			dfRes = createZigZagPoints(ticker_df.Close[ticker]).dropna()
+			candlestick2_ohlc(ax,ticker_df['Open'][ticker],ticker_df['High'][ticker],ticker_df['Low'][ticker],ticker_df['Close'][ticker],width=0.6, colorup='g', colordown='r')
+		else:
+			dfRes = createZigZagPoints(ticker_df.Close).dropna()
+			candlestick2_ohlc(ax,ticker_df['Open'],ticker_df['High'],ticker_df['Low'],ticker_df['Close'],width=0.6, colorup='g', colordown='r')
 		
+		plt.plot(dfRes['Value'])
 		removed_indexes = []
 		for index, row in dfRes.iterrows():
 			if (not(index in removed_indexes)):
