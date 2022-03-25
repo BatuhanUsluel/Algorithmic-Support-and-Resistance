@@ -10,6 +10,7 @@ import time
 import yfinance as yahoo_finance
 yahoo_finance.pdr_override()
 from mpl_finance import candlestick2_ohlc
+# sometimes line 12 doesnot work then you can use ...mplfinance import....
 
 from argparse import ArgumentParser
 
