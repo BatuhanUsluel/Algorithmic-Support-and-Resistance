@@ -6,6 +6,7 @@ Uses the [zig-zag](https://www.investopedia.com/terms/z/zig_zag_indicator.asp "I
 ```
 usage: Support&Resistance.py [-h] [-t TICKERS] [-p PERIOD] [-i INTERVAL]
                              [-d DIF] [--time TIME] [-n NUMBER] [-m MIN]
+                             [-o OUTDIR] [-hl | --hlines | --no-hlines]
 
 Algorithmic Support and Resistance
 
@@ -32,6 +33,11 @@ optional arguments:
   -m MIN, --min MIN     Min number of bars from the start the
                         support/resistance line has to be at to display chart.
                         Default: 150
+  -o OUTDIR, --outdir OUTDIR
+                        Output the graph files to this directory
+  -hl, --hlines, --no-hlines
+                        Extend the support/resistance lines to the full width
+                        of the graph
 ```
 
 Example Charts:
